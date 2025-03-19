@@ -183,12 +183,7 @@
                     hideMessage();
                     document.removeEventListener('click', hideMessage);
                 }
-            }
-
-             // Garante que não tenha múltiplos eventListeners ativos
-            setTimeout(() => {
-            document.addEventListener('click', outsideClick);
-            }, 100);
+            });
         }
 
         function hideMessage() {
