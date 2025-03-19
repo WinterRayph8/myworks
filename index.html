@@ -161,11 +161,8 @@
                 messageBox.style.opacity = '1';
             }, 10);
 
-            // Remove qualquer timeout anterior para evitar sumiço precoce
-            clearTimeout(messageBox.hideTimeout);
-
             // Mantenha a mensagem visível por 20 segundos antes de esconder
-            messageBox.hideTimeout = setTimeout(() => {
+            setTimeout(() => {
                 hideMessage();
             }, 20000); // Tempo que a mensagem ficará visível (20 segundos)
 
@@ -178,7 +175,7 @@
             }
 
             // Esconde a mensagem ao clicar fora
-            function outsideClick(event) {
+            document.addEventListener('click', function hideMessage(event) {
                 if (!messageBox.contains(event.target)) {
                     hideMessage();
                     document.removeEventListener('click', hideMessage);
