@@ -154,7 +154,7 @@
 
         function showMessage(text) {
             const messageBox = document.getElementById('message-box');
-            messageBox.innerHTML = text;
+            messageBox.textContent = text;
             messageBox.style.display = 'block';
             messageBox.style.opacity = '0';
 
@@ -162,15 +162,15 @@
                 messageBox.style.opacity = '1';
             }, 10);
 
-            // Mantenha a mensagem visível por 20 segundos antes de esconder
+            // Mantenha a mensagem visível por 10 segundos antes de esconder
             setTimeout(() => {
                 hideMessage();
-            }, 20000); // Tempo que a mensagem ficará visível (20 segundos)
+            }, 10000); // Tempo que a mensagem ficará visível (10 segundos)
 
             // Se for a última mensagem, pausa a primeira música e toca a segunda
             const allIcons = document.querySelectorAll('.icon');
             const lastIcon = allIcons[allIcons.length - 1];
-            if (text === '*Obrigado por me inspirar, compartilhar suas paixões, suas dores, me fazer sorrir e, acima de tudo...<br><br>Obrigado por ser você.<br><br>Obrigado por ser cada parte de você.') {
+            if (text === 'Que você continue conquistando tudo o que quiser, com muita felicidade e amor!') {
                 pauseBackgroundMusic(); // Pausar a primeira música
                 playRoundaboutMusic(); // Tocar a segunda música
             }
@@ -200,7 +200,6 @@
 
         function pauseBackgroundMusic() {
             const backgroundMusic = document.getElementById('background-music');
-            backMusic.volume = 0.2;
             backgroundMusic.pause(); // Pausa a música inicial
         }
 
