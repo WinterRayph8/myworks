@@ -152,7 +152,7 @@
             }
         }
 
-        let messageTimeout; // Armazena o timeout globalmente//
+        let messageTimeout; // Armazena o timeout globalmente
         
         function showMessage(text) {
             const messageBox = document.getElementById('message-box');
@@ -164,17 +164,12 @@
                 messageBox.style.opacity = '1';
             }, 10);
 
-            // Cancela qualquer timeout ativo antes de definir um novo//
+            // Cancela qualquer timeout ativo antes de definir um novo
             if (messageTimeout) {
                 clearTimeout(messageTimeout);
             }
 
-            // Mantenha a mensagem visível por 20 segundos antes de esconder
-            //setTimeout(() => {
-               //hideMessage();
-            //}, 20000); // Tempo que a mensagem ficará visível (20 segundos)
-
-            // Define um novo timeout para esconder a mensagem após 17 segundos//
+            // Define um novo timeout para esconder a mensagem após 17 segundos
             messageTimeout = setTimeout(() => {
                 hideMessage();
             }, 17000);
@@ -202,7 +197,7 @@
             
             setTimeout(() => {
                 messageBox.style.display = 'none';
-            }, 300); // Tempo para a animação de fade-out//
+            }, 300); // Tempo para a animação de fade-out
         }
 
         function playRoundaboutMusic() {
