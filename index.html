@@ -161,8 +161,11 @@
                 messageBox.style.opacity = '1';
             }, 10);
 
+            // Remove qualquer timeout anterior para evitar sumiço precoce
+            clearTimeout(messageBox.hideTimeout);
+
             // Mantenha a mensagem visível por 20 segundos antes de esconder
-            setTimeout(() => {
+            messageBox.hideTimeout = setTimeout(() => {
                 hideMessage();
             }, 20000); // Tempo que a mensagem ficará visível (20 segundos)
 
@@ -175,12 +178,17 @@
             }
 
             // Esconde a mensagem ao clicar fora
-            document.addEventListener('click', function hideMessage(event) {
+            function outsideClick(event) {
                 if (!messageBox.contains(event.target)) {
                     hideMessage();
                     document.removeEventListener('click', hideMessage);
                 }
-            });
+            }
+
+             // Garante que não tenha múltiplos eventListeners ativos
+            setTimeout(() => {
+            document.addEventListener('click', outsideClick);
+            }, 100);
         }
 
         function hideMessage() {
