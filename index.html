@@ -211,23 +211,9 @@
             roundaboutMusic.play(); // Toca a nova música
         }
 
-        //function pauseBackgroundMusic() {
-            //const backgroundMusic = document.getElementById('background-music');
-            //backgroundMusic.pause(); // Pausa a música inicial
-        //}
-        
-        function fadeOutBackgroundMusic() {
+        function pauseBackgroundMusic() {
             const backgroundMusic = document.getElementById('background-music');
-            let volume = backgroundMusic.volume;  // Obtém o volume atual da música
-            let fadeOutInterval = setInterval(() => {
-                if (volume > 0) {
-                    volume -= 0.01; // Diminui o volume em 1% por vez
-                    backgroundMusic.volume = volume; // Aplica o novo volume
-                } else {
-                    clearInterval(fadeOutInterval); // Para o intervalo quando o volume chega a 0
-                    backgroundMusic.pause(); // Pausa a música
-                }
-            }, 50); // Ajuste o intervalo para um fade mais lento ou mais rápido
+            backgroundMusic.pause(); // Pausa a música inicial
         }
 
         window.onload = function() {
