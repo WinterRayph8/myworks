@@ -188,18 +188,9 @@
             }
 
             // Esconde a mensagem ao clicar fora
-            //document.addEventListener('click', function hideMessage(event) {
-            //    if (!messageBox.contains(event.target)) {
-              //      hideMessage();
-                //    document.removeEventListener('click', hideMessage);
-                //}
-            //});
-
-            // Esconde a mensagem ao clicar fora
             document.addEventListener('click', function hideMessage(event) {
-                const messageBox = document.getElementById('message-box'); // Ajuste conforme necessário
                 if (!messageBox.contains(event.target)) {
-                    messageBox.style.display = 'none'; // Exemplo para esconder a mensagem
+                    hideMessage();
                     document.removeEventListener('click', hideMessage);
                 }
             });
