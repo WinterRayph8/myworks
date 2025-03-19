@@ -200,15 +200,44 @@
             }, 300); // Tempo para a animação de fade-out
         }
 
+        //function playRoundaboutMusic() {
+            //const roundaboutMusic = document.getElementById('roundabout-music');
+          //  roundaboutMusic.volume = 1;
+        //    roundaboutMusic.play(); // Toca a nova música
+        //}
+
+        //function pauseBackgroundMusic() {
+          //  const backgroundMusic = document.getElementById('background-music');
+         //   backgroundMusic.pause(); // Pausa a música inicial
+        //}
+
         function playRoundaboutMusic() {
             const roundaboutMusic = document.getElementById('roundabout-music');
-            roundaboutMusic.volume = 1;
-            roundaboutMusic.play(); // Toca a nova música
+            roundaboutMusic.volume = 0;
+            roundaboutMusic.play();
+
+            // Fade-in da nova música
+            let fadeInInterval = setInterval(function() {
+                if (roundaboutMusic.volume < 1) {
+                    roundaboutMusic.volume += 0.05; // Aumenta o volume aos poucos
+                } else {
+                    clearInterval(fadeInInterval); // Para o intervalo quando o volume atingir 1
+                }
+            }, 100);
         }
 
         function pauseBackgroundMusic() {
             const backgroundMusic = document.getElementById('background-music');
-            backgroundMusic.pause(); // Pausa a música inicial
+    
+            // Fade-out da música atual
+            let fadeOutInterval = setInterval(function() {
+                if (backgroundMusic.volume > 0) {
+                    backgroundMusic.volume -= 0.05; // Diminui o volume aos poucos
+                } else {
+                    backgroundMusic.pause(); // Pausa a música quando o volume chegar a 0
+                     clearInterval(fadeOutInterval); // Para o intervalo quando o volume atingir 0
+                }
+            }, 100);
         }
 
         window.onload = function() {
