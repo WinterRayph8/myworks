@@ -200,17 +200,6 @@
             }, 300); // Tempo para a animação de fade-out
         }
 
-        //function playRoundaboutMusic() {
-            //const roundaboutMusic = document.getElementById('roundabout-music');
-          //  roundaboutMusic.volume = 1;
-        //    roundaboutMusic.play(); // Toca a nova música
-        //}
-
-        //function pauseBackgroundMusic() {
-          //  const backgroundMusic = document.getElementById('background-music');
-         //   backgroundMusic.pause(); // Pausa a música inicial
-        //}
-
         function playRoundaboutMusic() {
             const roundaboutMusic = document.getElementById('roundabout-music');
             roundaboutMusic.volume = 0;
@@ -229,7 +218,7 @@
         function pauseBackgroundMusic() {
             const backgroundMusic = document.getElementById('background-music');
     
-            // Fade-out da música atual
+            // Fade-out da música inicial
             let fadeOutInterval = setInterval(function() {
                 if (backgroundMusic.volume > 0) {
                     backgroundMusic.volume -= 0.05; // Diminui o volume aos poucos
